@@ -13,6 +13,12 @@ function statement (invoice, plays) {
     switch (play.type) {
     case "tragedy":
       thisAmount = 40000;
+      if (perf.audience > 30) {
+        thisAmount += 1000 * (perf.audience - 30);
+      }
+      break;
+    case "comeddy": 
+      thisAmount = 30000;
       if (perf.audience > 20) {
         thisAmount += 10000 + 500 * (perf.audience - 20);
       }
