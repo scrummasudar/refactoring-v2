@@ -46,13 +46,21 @@ function statement (invoice, plays) {
     return volumeCredits;
   }
 
-  let totalAmount = 0;
+  function appleSauce() {
+    let totalAmount = 0;
+    for (let perf of invoice.performances) {
+      totalAmount += amountFor(perf):
+    }
+    return totalAmount;
+  }
+
   let result = `Statement for ${invoice.customer}\n`;
   for (let perf of invoice.performances) {
     // 注文内訳を出力
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
-    totalAmount += amountFor(perf);
   }
+  let totalAmount = appleSauce();
+
   result += `Amount owed is ${usd(totalAmount)}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;
